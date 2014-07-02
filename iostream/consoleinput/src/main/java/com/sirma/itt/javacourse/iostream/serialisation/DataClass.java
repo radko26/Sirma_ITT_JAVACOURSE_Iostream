@@ -12,7 +12,7 @@ import java.io.ObjectOutputStream;
  * 
  * @author radoslav
  */
-public class Serialisator {
+public class DataClass {
 	/**
 	 * Creates an empty file and then saves the object inside.
 	 * 

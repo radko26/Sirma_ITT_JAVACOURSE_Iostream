@@ -12,7 +12,7 @@ import org.junit.Test;
  * 
  * @author radoslav
  */
-public class SerialisatorTest {
+public class DataClassTest {
 	private UserDefinedObject sourceObject;
 	private UserDefinedObject testObject;
 
@@ -36,13 +36,13 @@ public class SerialisatorTest {
 	@Test
 	public void testSaveAndGet() throws IOException, ClassNotFoundException {
 		try {
-			Serialisator.saveObject(
+			DataClass.saveObject(
 					"/home/radoslav/JAVA/ITT1/iostream/consoleinput/save.obj",
 					sourceObject);
 		} catch (IOException e) {
 			throw new IOException("No such file.");
 		}
-		testObject = Serialisator
+		testObject = DataClass
 				.getObject("/home/radoslav/JAVA/ITT1/iostream/consoleinput/save.obj");
 		assertEquals(sourceObject.getName(), testObject.getName());
 	}
