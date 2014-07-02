@@ -1,6 +1,7 @@
 package com.sirma.itt.javacourse.iostream.consoletofile;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.util.Scanner;
 
@@ -23,9 +24,11 @@ public class ConsoleReaderToFile {
 	 * Reads the text from the keyboard and then writes it back to a file.
 	 * 
 	 * @param path
-	 *            the location of the file in which it will write.
+	 *            The location of the file in which it will write.
+	 * @throws FileNotFoundException
+	 *             If no file with the specified path is found.
 	 */
-	public void read() {
+	public void read() throws FileNotFoundException {
 		path = scannerInput.nextLine();
 		PrintWriter out = null;
 		try {
@@ -36,6 +39,7 @@ public class ConsoleReaderToFile {
 			}
 		} catch (Exception e) {
 			log.error("error loading file");
+			throw new FileNotFoundException("Error loading file");
 		} finally {
 			if (out != null) {
 				out.close();

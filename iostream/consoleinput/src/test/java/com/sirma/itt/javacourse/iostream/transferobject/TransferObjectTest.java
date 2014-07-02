@@ -25,15 +25,15 @@ public class TransferObjectTest {
 	 */
 	@Test
 	public void testTransfer() throws IOException {
-		String inputValue = "test";
+		String inputValue = "testsfasfasfasfsaf";
 		InputStream input = new ByteArrayInputStream(
 				inputValue.getBytes(StandardCharsets.UTF_8));
 		OutputStream output = new ByteArrayOutputStream();
 		TransferObject transfer = new TransferObject(input, output);
-		int copied = 2;
+		int copied = 4;
 		int beginToCopy = 1;
-		assertEquals(2, transfer.transfer(copied, beginToCopy));
-		assertEquals("es", output.toString());
+		assertEquals(4, transfer.transfer(copied, beginToCopy));
+		assertEquals("ests", output.toString());
 		input.close();
 		output.close();
 	}
