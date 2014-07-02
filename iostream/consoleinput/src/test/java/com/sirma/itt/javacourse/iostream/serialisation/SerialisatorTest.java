@@ -12,17 +12,17 @@ import org.junit.Test;
  * 
  * @author radoslav
  */
-public class DataClassTest {
-	private UserDefinedObject sourceObject;
-	private UserDefinedObject testObject;
+public class SerialisatorTest {
+	private DataClass sourceObject;
+	private DataClass testObject;
 
 	/**
 	 * Initializes variables before the test.
 	 */
 	@Before
 	public void init() {
-		sourceObject = new UserDefinedObject("Marica");
-		testObject = new UserDefinedObject("");
+		sourceObject = new DataClass("Marica");
+		testObject = new DataClass("");
 	}
 
 	/**
@@ -36,13 +36,13 @@ public class DataClassTest {
 	@Test
 	public void testSaveAndGet() throws IOException, ClassNotFoundException {
 		try {
-			DataClass.saveObject(
+			Serialisator.saveObject(
 					"/home/radoslav/JAVA/ITT1/iostream/consoleinput/save.obj",
 					sourceObject);
 		} catch (IOException e) {
 			throw new IOException("No such file.");
 		}
-		testObject = DataClass
+		testObject = Serialisator
 				.getObject("/home/radoslav/JAVA/ITT1/iostream/consoleinput/save.obj");
 		assertEquals(sourceObject.getName(), testObject.getName());
 	}

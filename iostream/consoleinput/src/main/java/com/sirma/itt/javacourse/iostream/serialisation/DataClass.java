@@ -1,64 +1,29 @@
 package com.sirma.itt.javacourse.iostream.serialisation;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
+import java.io.Serializable;
 
 /**
- * This class contains methods for saving and reading an object from a file.
+ * Simple class which only contains a string field. The class implements
+ * {@link Serializable}.
  * 
  * @author radoslav
  */
-public class DataClass {
-	/**
-	 * Creates an empty file and then saves the object inside.
-	 * 
-	 * @param path
-	 *            The absolute path to the file.
-	 * @param object
-	 *            The object which you save.
-	 * @throws IOException
-	 *             If any i/o exceptions occur.
-	 */
-	public static void saveObject(String path, UserDefinedObject object)
-			throws IOException {
-		File file = new File(path);
-		if (file.exists()) {
-			file.delete();
-		} else {
-			file.createNewFile();
-		}
-		FileOutputStream stream = new FileOutputStream(file, false);
-		ObjectOutputStream objectStream = new ObjectOutputStream(stream);
-		objectStream.writeObject(object);
-		objectStream.flush();
-		objectStream.close();
-		stream.close();
+@SuppressWarnings("serial")
+public class DataClass implements Serializable {
+
+	private String name;
+
+	public DataClass(String name) {
+		this.name = name;
 	}
 
 	/**
+	 * Gets the name.
 	 * 
-	 * @param path
-	 *            The absolute path to the file.
-	 * @return The object which was inside the file.
-	 * @throws IOException
-	 *             If i/o exceptions occur.
-	 * @throws ClassNotFoundException
-	 *             If there is no such class object saved inside the file.
+	 * @return Object's name.
 	 */
-	public static UserDefinedObject getObject(String path) throws IOException,
-			ClassNotFoundException {
-		File file = new File(path);
-		FileInputStream stream = new FileInputStream(file);
-		ObjectInputStream objectStream = new ObjectInputStream(stream);
-		UserDefinedObject object = (UserDefinedObject) objectStream
-				.readObject();
-		objectStream.close();
-		stream.close();
-		return object;
+	public String getName() {
+		return name;
 	}
 
 }
