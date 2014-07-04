@@ -1,21 +1,27 @@
 package com.sirma.itt.javacourse.iostream.consolein;
 
-import java.io.Console;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
 /**
- * A static console class which reads from the standart console
+ * A static class which uses {@link BufferedReader} to read from the keyboard.
+ * @TODO
  * 
  * @author radoslav
  */
 public class ConsoleReader {
-	private static Console con = System.console();
+	protected static BufferedReader con = new BufferedReader(
+			new InputStreamReader(System.in));
 
 	/**
 	 * Reads a line from the console.
 	 * 
 	 * @return the inputed line
+	 * @throws IOException
+	 *             If any {@link IOException} occur.
 	 */
-	public static String readString() {
+	public static String readString() throws IOException {
 		return con.readLine();
 	}
 
@@ -24,8 +30,10 @@ public class ConsoleReader {
 	 * it asks for another input.
 	 * 
 	 * @return float number
+	 * @throws IOException
+	 *             If any {@link IOException} occur.
 	 */
-	public static float readFloat() {
+	public static float readFloat() throws IOException {
 		float floatNumber = 0;
 		try {
 			floatNumber = Float.parseFloat(con.readLine());
@@ -40,8 +48,10 @@ public class ConsoleReader {
 	 * fails it asks for another try.
 	 * 
 	 * @return the integer
+	 * @throws IOException
+	 *             If any {@link IOException} occur.
 	 */
-	public static int readInt() {
+	public static int readInt() throws IOException {
 		int intNumber = 0;
 		try {
 			intNumber = Integer.parseInt(con.readLine());
@@ -53,12 +63,14 @@ public class ConsoleReader {
 	}
 
 	/**
-	 * Reads a line and takes only the first inputed char
+	 * Takes only one character.
 	 * 
 	 * @return the char
+	 * @throws IOException
+	 *             If any {@link IOException} occur.
 	 */
-	public static char readChar() {
-		return con.readLine().charAt(0);
+	public static char readChar() throws IOException {
+		return (char) con.read();
 	}
 
 }

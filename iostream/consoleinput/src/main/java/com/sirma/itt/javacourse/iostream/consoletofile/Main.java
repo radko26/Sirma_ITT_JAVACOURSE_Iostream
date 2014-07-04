@@ -11,7 +11,7 @@ import java.io.FileNotFoundException;
 public class Main {
 
 	public static void main(String[] args) throws FileNotFoundException {
-		ConsoleReaderToFile crtf = new ConsoleReaderToFile();
+		ConsoleReaderToFile crtf = new ConsoleReaderToFile(System.in);
 		crtf.read();
 	}
 

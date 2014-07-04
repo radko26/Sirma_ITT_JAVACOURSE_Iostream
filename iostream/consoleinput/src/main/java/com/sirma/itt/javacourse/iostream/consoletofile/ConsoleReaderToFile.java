@@ -2,6 +2,7 @@ package com.sirma.itt.javacourse.iostream.consoletofile;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.InputStream;
 import java.io.PrintWriter;
 import java.util.Scanner;
 
@@ -15,13 +16,18 @@ import org.slf4j.LoggerFactory;
  */
 public class ConsoleReaderToFile {
 
-	private static Scanner scannerInput = new Scanner(System.in);
-	private static Logger log = LoggerFactory
+	private Scanner scannerInput;
+	private static final Logger log = LoggerFactory
 			.getLogger(ConsoleReaderToFile.class);
-	private String path;
+
+	
+	public ConsoleReaderToFile(InputStream inputStream) {
+		scannerInput = new Scanner(inputStream);
+	}
+
 
 	/**
-	 * Reads the text from the keyboard and then writes it back to a file.
+	 * Reads the text from the stream and then writes it back to a file.
 	 * 
 	 * @param path
 	 *            The location of the file in which it will write.
@@ -29,7 +35,7 @@ public class ConsoleReaderToFile {
 	 *             If no file with the specified path is found.
 	 */
 	public void read() throws FileNotFoundException {
-		path = scannerInput.nextLine();
+		String path=scannerInput.nextLine();
 		PrintWriter out = null;
 		try {
 			out = new PrintWriter(new File(path + ".txt"));
