@@ -46,7 +46,6 @@ public class ConsoleReaderToFileTest {
 		if (scanInput.nextLine() != "." && scanInput.hasNext()) {
 			fail();
 		}
-		input.close();
 		copyInput.close();
 		scanInput.close();
 		scanOutput.close();

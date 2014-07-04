@@ -5,13 +5,12 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 /**
- * A static class which uses {@link BufferedReader} to read from the keyboard.
- * @TODO
+ * A static class which uses {@link BufferedReader} to read from a stream.
  * 
  * @author radoslav
  */
 public class ConsoleReader {
-	protected static BufferedReader con = new BufferedReader(
+	private static BufferedReader consoleReader = new BufferedReader(
 			new InputStreamReader(System.in));
 
 	/**
@@ -22,7 +21,7 @@ public class ConsoleReader {
 	 *             If any {@link IOException} occur.
 	 */
 	public static String readString() throws IOException {
-		return con.readLine();
+		return consoleReader.readLine();
 	}
 
 	/**
@@ -36,7 +35,7 @@ public class ConsoleReader {
 	public static float readFloat() throws IOException {
 		float floatNumber = 0;
 		try {
-			floatNumber = Float.parseFloat(con.readLine());
+			floatNumber = Float.parseFloat(consoleReader.readLine());
 		} catch (NumberFormatException e) {
 			readFloat();
 		}
@@ -54,7 +53,7 @@ public class ConsoleReader {
 	public static int readInt() throws IOException {
 		int intNumber = 0;
 		try {
-			intNumber = Integer.parseInt(con.readLine());
+			intNumber = Integer.parseInt(consoleReader.readLine());
 
 		} catch (NumberFormatException e) {
 			readInt();
@@ -70,7 +69,7 @@ public class ConsoleReader {
 	 *             If any {@link IOException} occur.
 	 */
 	public static char readChar() throws IOException {
-		return (char) con.read();
+		return (char) consoleReader.readLine().charAt(0);
 	}
 
 }

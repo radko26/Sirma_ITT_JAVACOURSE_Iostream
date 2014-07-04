@@ -1,6 +1,7 @@
 package com.sirma.itt.javacourse.iostream.directorybrowser;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -20,9 +21,14 @@ public class DirectoryBrowser {
 	 * 
 	 * @param path
 	 *            The searched path.
+	 * @throws FileNotFoundException
+	 *             If the specified path does not lead to a file.
 	 */
-	public static final void listElements(String path) {
+	public static void listElements(String path) throws FileNotFoundException {
 		File file = new File(path);
+		if (!file.exists()) {
+			throw new FileNotFoundException("no such file or directory");
+		}
 		if (file.isFile()) {
 			log.info("This is file:");
 		} else {
@@ -31,7 +37,7 @@ public class DirectoryBrowser {
 				if (subDirs[i].isFile()) {
 					log.info("File: " + subDirs[i].getName());
 				} else {
-					log.info("Foloder: " + subDirs[i].getName());
+					log.info("Folder: " + subDirs[i].getName());
 				}
 			}
 		}

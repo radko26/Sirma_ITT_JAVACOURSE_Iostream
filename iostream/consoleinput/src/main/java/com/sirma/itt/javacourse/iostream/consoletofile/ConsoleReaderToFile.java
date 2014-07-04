@@ -20,11 +20,9 @@ public class ConsoleReaderToFile {
 	private static final Logger log = LoggerFactory
 			.getLogger(ConsoleReaderToFile.class);
 
-	
 	public ConsoleReaderToFile(InputStream inputStream) {
 		scannerInput = new Scanner(inputStream);
 	}
-
 
 	/**
 	 * Reads the text from the stream and then writes it back to a file.
@@ -35,7 +33,7 @@ public class ConsoleReaderToFile {
 	 *             If no file with the specified path is found.
 	 */
 	public void read() throws FileNotFoundException {
-		String path=scannerInput.nextLine();
+		String path = scannerInput.nextLine();
 		PrintWriter out = null;
 		try {
 			out = new PrintWriter(new File(path + ".txt"));

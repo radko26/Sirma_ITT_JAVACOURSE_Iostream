@@ -54,8 +54,7 @@ public class Serialisator {
 		File file = new File(path);
 		FileInputStream stream = new FileInputStream(file);
 		ObjectInputStream objectStream = new ObjectInputStream(stream);
-		DataClass object = (DataClass) objectStream
-				.readObject();
+		DataClass object = (DataClass) objectStream.readObject();
 		objectStream.close();
 		stream.close();
 		return object;
