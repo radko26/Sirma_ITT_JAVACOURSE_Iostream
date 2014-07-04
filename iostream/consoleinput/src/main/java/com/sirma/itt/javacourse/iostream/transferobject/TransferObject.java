@@ -50,6 +50,8 @@ public class TransferObject {
 			count++;
 			numberOfBytes--;
 		}
+		input.close();
+		output.close();
 		return count;
 	}
 }

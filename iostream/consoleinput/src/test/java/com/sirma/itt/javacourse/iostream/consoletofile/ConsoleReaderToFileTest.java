@@ -9,6 +9,7 @@ import java.io.InputStream;
 import java.util.Scanner;
 
 import org.junit.Test;
+
 /**
  * Test class for {@link ConsoleReaderToFile}
  * 

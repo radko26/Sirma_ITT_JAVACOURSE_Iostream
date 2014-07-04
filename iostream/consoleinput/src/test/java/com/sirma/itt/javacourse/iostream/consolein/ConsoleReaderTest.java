@@ -50,7 +50,9 @@ public class ConsoleReaderTest {
 				ConsoleReader.readFloat(), 123456);
 		assertEquals(scanFile.nextLine().charAt(0), ConsoleReader.readChar());
 		assertEquals(scanFile.nextInt(), ConsoleReader.readInt());
-
+		
+		
+		ConsoleReader.close();
 		scanFile.close();
 		inputStream.close();
 		inputStreamForScanner.close();

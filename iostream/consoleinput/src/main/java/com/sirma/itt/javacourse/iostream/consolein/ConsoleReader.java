@@ -72,4 +72,14 @@ public class ConsoleReader {
 		return (char) consoleReader.readLine().charAt(0);
 	}
 
+	/**
+	 * Closes the stream
+	 * 
+	 * @throws IOException
+	 *             In case the stream was null.
+	 */
+	public static void close() throws IOException {
+		consoleReader.close();
+	}
+
 }
