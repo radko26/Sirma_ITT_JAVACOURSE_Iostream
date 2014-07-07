@@ -17,7 +17,7 @@ import org.slf4j.LoggerFactory;
 public class ConsoleReaderToFile {
 
 	private Scanner scannerInput;
-	private static final Logger log = LoggerFactory
+	private static final Logger LOG = LoggerFactory
 			.getLogger(ConsoleReaderToFile.class);
 
 	public ConsoleReaderToFile(InputStream inputStream) {
@@ -42,7 +42,7 @@ public class ConsoleReaderToFile {
 				out.println(line);
 			}
 		} catch (Exception e) {
-			log.error("error loading file");
+			LOG.error("error loading file");
 			throw new FileNotFoundException("Error loading file");
 		} finally {
 			if (out != null) {

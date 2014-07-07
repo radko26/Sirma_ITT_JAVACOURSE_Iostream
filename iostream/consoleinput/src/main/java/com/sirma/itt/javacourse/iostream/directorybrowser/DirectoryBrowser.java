@@ -12,7 +12,7 @@ import org.slf4j.LoggerFactory;
  * @author radoslav
  */
 public class DirectoryBrowser {
-	private static final Logger log = LoggerFactory
+	private static final Logger LOG = LoggerFactory
 			.getLogger(DirectoryBrowser.class);
 
 	/**
@@ -30,14 +30,14 @@ public class DirectoryBrowser {
 			throw new FileNotFoundException("no such file or directory");
 		}
 		if (file.isFile()) {
-			log.info("This is file:");
+			LOG.info("This is file:");
 		} else {
 			File[] subDirs = file.listFiles();
 			for (int i = 0; i < subDirs.length; i++) {
 				if (subDirs[i].isFile()) {
-					log.info("File: " + subDirs[i].getName());
+					LOG.info("File: " + subDirs[i].getName());
 				} else {
-					log.info("Folder: " + subDirs[i].getName());
+					LOG.info("Folder: " + subDirs[i].getName());
 				}
 			}
 		}
